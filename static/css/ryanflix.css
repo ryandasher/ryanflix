@@ -1,0 +1,22 @@
+/* Section styles. */
+
+#show {
+	display: none;
+	font-weight: bold;
+}
+
+#show span {
+	font-weight: normal;
+}
+
+/* Element styles. */
+
+select.shows {
+	display: block;
+	font-size: 16px;
+	margin: 15px auto;
+}
+
+button {
+	font-size: 13px;
+}

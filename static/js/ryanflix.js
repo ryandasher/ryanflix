@@ -9,16 +9,27 @@ function retrieveEpisodes() {
 	}
 
 	httpRequest.overrideMimeType('application/json');
-	httpRequest.open('GET', chrome.extension.getURL(json_file), true);
+	httpRequest.open('GET', json_file, true);
 	httpRequest.onreadystatechange = function() {
-		if (httpRequest.readyState == 4 && httpRequest.status == 200) {
-			showRandomEpisode(httpRequest.responseText);
+		if (httpRequest.readyState == XMLHttpRequest.DONE && httpRequest.status == 200) {
+			showRandomEpisode(JSON.parse(httpRequest.responseText));
 		}
 	}
-	httpRequest.send(null);
+	httpRequest.send();
+}
+
+function getRandomNumber(max, increment, rounded) {
+	if(rounded) {
+		return Math.floor((Math.random() * max) + increment);
+	}
+	return (Math.random() * max) + increment;
 }
 
 function showRandomEpisode(episodes) {
-	alert("WE HERE.");
-	alert(showRandomEpisode);
+	var seasons = Object.keys(episodes);
+	var index = getRandomNumber((Object.keys(episodes).length - 1), 1, true);
+	
+	var season = episodes[seasons[index]];
+	var episodeIndex = getRandomNumber((season.length - 1), 1, true);
+	var episode = season[episodeIndex];
 }

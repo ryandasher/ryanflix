@@ -6,7 +6,8 @@
   <meta content="Randomly generate an episode of a TV show to watch." name="description">
   <meta content="width=device-width, initial-scale=1" name="viewport">
 
-  <link href="../ryandasher/static/css/ryan.css" rel="stylesheet" />
+  <link href="http://ryandasher.com/static/css/ryan.css" rel="stylesheet"/>
+  <link href="static/css/ryanflix.css" rel="stylesheet"/>
 
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="57x57" href="../../static/images/favicons/apple-touch-icon-57x57.png">
@@ -31,11 +32,24 @@
   <meta name="theme-color" content="#ffffff">
 </head>
 <body>
-  <section id="main" class="centered">
-    <p>Hey world!</p>
+  <section id="header" class="centered">
+    <h1>Ryanflix</h1>
+    <p>Simply press a button to get a random episode from one of my favorite shows. Why make difficult choices when computers can make them for you!</p>
+  </section>
+  <section id="form" class="centered">
+    <select class="shows">
+      <option value="archer">Archer</option>
+      <option value="its_always_sunny_in_philadelphia">It's Always Sunny in Philadelphia</option>
+    </select>
+    <button type="submit" onclick="showRandomEpisode();"/>DO IT.</button>
+  </section>
+  <section id="show" class="centered">
+    <p>Season: <span></span></p>
+    <p>Episode: <span></span></p>
   </section>
   <footer class="centered">
     <p class="small"><a href="/">Home</a></p>
+    <script src="static/js/ryanflix.js"></script>
   </footer>
 </body>
 </html>

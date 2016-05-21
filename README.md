@@ -7,3 +7,4 @@ This is a small web application I built so I can randomly select an episode from
 * Come up with a more automated solution. Currently, data files need to be updated manually when a new season is released.
 * Display an image so we have that graphical pop.
 * Add the ability to specify a season.
+* Write some JavaScript tests.

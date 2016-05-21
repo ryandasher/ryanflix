@@ -1,3 +1,6 @@
+/**
+* Make a request to the proper JSON file, and parse it.
+*/
 function retrieveEpisodes() {
 	var json_file =
 		'/data/' + document.getElementsByClassName('shows')[0].value + '.json';
@@ -18,6 +21,14 @@ function retrieveEpisodes() {
 	httpRequest.send();
 }
 
+/**
+* Return a random integer.
+*
+* Args:
+* max -- Length of the data we want to generate a random number for (integer).
+* increment -- Amount to increment by (integer).
+* rounded -- Round down to the nearest integer (boolean).
+*/
 function getRandomNumber(max, increment, rounded) {
 	if(rounded) {
 		return Math.floor((Math.random() * max) + increment);
@@ -25,11 +36,22 @@ function getRandomNumber(max, increment, rounded) {
 	return (Math.random() * max) + increment;
 }
 
+/**
+* Show a random episode and season to the user.
+*
+* Args:
+* episodes -- Parsed JSON from our show's data file (object).
+*/
 function showRandomEpisode(episodes) {
+	// Randomly choose a season.
 	var seasons = Object.keys(episodes);
-	var index = getRandomNumber((Object.keys(episodes).length - 1), 1, true);
-	
+	var index = getRandomNumber((seasons.length - 1), 1, true);
+
+	// Randomly choose an episode from the selected season.
 	var season = episodes[seasons[index]];
-	var episodeIndex = getRandomNumber((season.length - 1), 1, true);
-	var episode = season[episodeIndex];
+	var epIndex = getRandomNumber((season.length - 1), 1, true);
+
+	document.getElementsByClassName('season')[0].innerHTML = seasons[index];
+	document.getElementsByClassName('episode')[0].innerHTML = season[epIndex];
+	document.getElementById('show').style.display = 'block';
 }

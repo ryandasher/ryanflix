@@ -3,7 +3,7 @@
 */
 function retrieveEpisodes() {
 	var json_file =
-		'/data/' + document.getElementsByClassName('shows')[0].value + '.json';
+		'data/' + document.getElementsByClassName('shows')[0].value + '.json';
 	var httpRequest = new XMLHttpRequest;
 
 	if (!httpRequest) {
